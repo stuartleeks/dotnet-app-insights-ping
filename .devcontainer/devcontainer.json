@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.241.1/containers/dotnet
 {
-	"name": "C# (.NET)",
+	"name": "dotnet-app-insights-ping",
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": { 
@@ -23,6 +23,14 @@
 			]
 		}
 	},
+
+
+	"mounts": [
+		// Keep command history
+		"type=volume,source=dotnet-app-insights-ping-bashhistory,target=/home/vscode/commandhistory",
+		// Re-use host .azure config + auth
+		"type=bind,source=${env:HOME}/.azure,target=/home/vscode/.azure"
+	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [5000, 5001],
